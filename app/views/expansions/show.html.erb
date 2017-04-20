@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @expansion.name %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @expansion.link %>
+</p>
+
+<%= link_to 'Edit', edit_expansion_path(@expansion) %> |
+<%= link_to 'Back', expansions_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Expansions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Link</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expansions.each do |expansion| %>
+      <tr>
+        <td><%= expansion.name %></td>
+        <td><img src="<%= expansion.link %>" alt=""> </td>
+        <td><%= link_to 'Show', expansion %></td>
+        <td><%= link_to 'Edit', edit_expansion_path(expansion) %></td>
+        <td><%= link_to 'Destroy', expansion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Expansion', new_expansion_path %>

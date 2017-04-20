@@ -1,0 +1,27 @@
+<%= form_for(expansion) do |f| %>
+  <% if expansion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(expansion.errors.count, "error") %> prohibited this expansion from being saved:</h2>
+
+      <ul>
+      <% expansion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
