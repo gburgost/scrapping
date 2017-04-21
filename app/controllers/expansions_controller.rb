@@ -3,7 +3,28 @@ class ExpansionsController < ApplicationController
 
   # GET /expansions
   # GET /expansions.json
+
   def index
+    require 'open-uri'
+ 
+    url = "http://www.sii.cl/pagina/valores/uf/uf2017.htm"
+    html = open(url).read
+    time = Time.now
+    mes = (time.strftime("%m").to_i) +1
+    dia = time.strftime("%d")
+     
+    @uf = Nokogiri::HTML(html).css("tbody tr[#{dia}] td[#{mes}]").text
+
+    link = open("http://v2.jaidefinichon.com/").read
+     
+    expansions = Nokogiri::HTML(link).css('.image_post img')
+
+
+    expansions.each do |exp|
+        Expansion.create(
+        :link => exp[:src])
+    end
+
     @expansions = Expansion.all
   end
 

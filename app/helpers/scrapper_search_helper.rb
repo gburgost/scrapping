@@ -1,0 +1,2 @@
+module ScrapperSearchHelper
+end
